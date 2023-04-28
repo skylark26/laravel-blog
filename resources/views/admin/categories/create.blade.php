@@ -30,10 +30,14 @@
                 <a href="" class="btn btn-block btn-primary">Добавить</a>
             </div>
             <div class="col-12">
-                <form action="" class="w-25">
+                <form action="{{ route('admin.category.store') }}" method="post" class="w-25">
+                    @csrf
                     <div class="form-group">
                         <label>Название</label>
-                        <input type="email" class="form-control" placeholder="Название категории">
+                        <input type="text" name="title" class="form-control" placeholder="Название категории">
+                        @error('title')
+                        <div class="text-danger">Это поле необходимо для заполнения</div>
+                        @enderror
                     </div>
                     <input type="submit" class="btn btn-primary" value="Добавить">
                 </form>
